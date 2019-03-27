@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<div th:replace="~{common/common-head.html::common-head}"></div>
+</head>
+<body >
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+	<legend>欢迎使用auto-code-admin后台代码自动生成引擎.2.1.0再次升级.支持可视化生成`单表`, `一对一`, `一对多` ,`多对多`代码.
+		不再需要写yaml文件,支持无限级联 <a th:href="@{/auto-code-ui/ui/index.html}" target="_blank" style="color: #4fbd4f">代码生成地址</a>
+		(服务器在美国,有时访问可能比较慢.)
+		</legend>
+</fieldset>
+<ul class="layui-timeline">
+	<li class="layui-timeline-item">
+		<i class="layui-icon layui-timeline-axis"></i>
+		<div class="layui-timeline-content layui-text">
+			<h3 class="layui-timeline-title">目录</h3>
+			<p>
+				<a href="#1">一.项目介绍</a>
+				<ul>
+					<li><a href="#1.1">项目的优势在哪里</a></li>
+					<li><a href="#1.2">什么情况选择该项目</a></li>
+					<li><a href="#1.3">为何会发起该项目</a></li>
+					<li><a href="#1.4">如果您觉得项目还行.请点赞</a></li>
+					<li><a href="#1.5">软件架构</a></li>
+					<li><a href="#1.6">项目模块介绍</a></li>
+				</ul>
+				<a href="#2">二.安装教程</a>
+				<ul>
+					<li><a href="#2.1">代码生成教程</a></li>
+					<li><a href="#2.1.1">介绍</a></li>
+					<li><a href="#2.1.2">单表生成</a></li>
+					<li><a href="#2.1.3">一对一</a></li>
+					<li><a href="#2.1.4">一对多</a></li>
+					<li><a href="#2.1.5">多对多</a></li>
+					<li><a href="#2.1.5">多对多</a></li>
+					<li><a href="#2.2">生成代码注意事项</a></li>
+				</ul>
+				<a href="#3">三.进阶篇</a>
+				<ul>
+					<li><a href="#3.1">如何进行项目集群</a></li>
+					<li> <a href="#3.2">权限机制的实现</a></li>
+				</ul>
+			</p>
+		</div>
+	</li>
+	<li class="layui-timeline-item">
+		<i class="layui-icon layui-timeline-axis"></i>
+		<div class="layui-timeline-content layui-text">
+			<h3 class="layui-timeline-title"><a name="1.1">项目的优势在哪里</a></h3>
+			<p>
+				1.目前市面上的代码生成工具绝大多数仅仅支持生成单表,该项目支持 `单表`, `一对一`, `一对多` ,`多对多`
+				以及所对应的页面生成.大大简化了开发的工作量<br />
+
+				2.该项目仅仅只是帮你生成单表以及多表的`增删改查`,不做任何底层的改动.只要你知道怎么使用 spring boot+mybatis技术.就能看懂代码
+			</p>
+		</div>
+	</li>
+	<li class="layui-timeline-item">
+		<i class="layui-icon layui-timeline-axis"></i>
+		<div class="layui-timeline-content layui-text">
+			<h3 class="layui-timeline-title"><a name="1.2">什么情况选择该项目</a></h3>
+			<p>
+				1.该项目前后台代码一起生成.如果你是做后台.页面展示比较固定.该项目非常适合你<br/>
+
+				2.如果你们采用前后台分离.或者开发的页面模板不固定.请使用 <a href="https://gitee.com/ztp/auto-code" target="_blank">auto-code</a> 该项目.
+				这个项目只生成接口适用性很广.spring boot项目和传统的javaweb项目都适用.不管是一次开发还是二次开发,
+				只需要简单的集成一个jar包以及少量的配置.就能生成代码
+			</p>
+		</div>
+	</li>
+	<li class="layui-timeline-item">
+		<i class="layui-icon layui-timeline-axis"></i>
+		<div class="layui-timeline-content layui-text">
+			<h3 class="layui-timeline-title"><a name="1.3">为何会发起该项目? </a></h3>
+			<p>
+				绝大多数时候我们都是在做`增删改查`.每次创建一张表.然后我们需要重新写一次增删改查,
+				写虽然简单,不过极度耗时(controller,server,serverImpl,dao,xml)
+				所以才有了该项目,该项目能帮助我们减少后台开发的80%的工作量,让你专注于业务的实现.
+			</p>
+		</div>
+	</li>
+	<li class="layui-timeline-item">
+		<i class="layui-icon layui-timeline-axis"></i>
+		<div class="layui-timeline-content layui-text">
+			<h3 class="layui-timeline-title"><a name="1.4">如果您觉得项目还行.请点赞.您的支持是我最大的动力 <a href="https://gitee.com/ztp/auto-code-admin" target="_blank">项目地址</a></a></h3>
+			<p>
+				<img src="http://images.zengtengpeng.com/auto-code-web/start.png">
+			</p>
+		</div>
+	</li>
+	<li class="layui-timeline-item">
+		<i class="layui-icon layui-timeline-axis"></i>
+		<div class="layui-timeline-content layui-text">
+			<h3 class="layui-timeline-title"><a name="1.5">软件架构</a></h3>
+			<p>
+				1.基于 springboot 2.0.7+mybatis+mysql<br />
+				2.基于代码生成引擎做了页面的生成扩展 auto-code [源码地址](https://gitee.com/ztp/auto-code) <br />
+				3.模板引擎-> thymeleaf<br />
+				4.前端主要使用layui<br />
+				5.前端后台框架layuiAdmin  https://github.com/coderyangjie/layuiAdmin<br />
+			</p>
+		</div>
+	</li>
+	<li class="layui-timeline-item">
+		<i class="layui-icon layui-timeline-axis"></i>
+		<div class="layui-timeline-content layui-text">
+			<h3 class="layui-timeline-title"><a name="1.6">项目模块介绍</a></h3>
+			<p>
+				auto-code-admin(根节点)<br />
+					-auto-code-generator  代码生成配置<br />
+					-auto-code-common ->系统设置,权限,日志模块<br />
+					-auto-code-sys ->系统设置模块<br />
+					-auto-code-charts ->报表模块<br />
+					-auto-code-web ->发布模块(该模块聚合以上模块进行发布,如果报表模块不想使用直接在pom.xml将该模块注释掉就好.)<br />
+			</p>
+		</div>
+	</li>
+	<li class="layui-timeline-item">
+		<i class="layui-icon layui-timeline-axis"></i>
+		<div class="layui-timeline-content layui-text">
+			<h3 class="layui-timeline-title"><a name="2">安装教程</a></h3>
+			<p>
+				1.安装jdk1.8+, mysql5.0+,maven,git<br />
+				2.下载源码<br />
+				3. 导入 auto-code-admin 下的 auto_code.sql 初始化数据库<br />
+				4. 修改 auto-code-web/application-dev.properties 中的数据库连接以及用户名密码<br />
+				5. auto-code-admin 打开cmd密令 执行 mvn clean package<br />
+				6. auto-code-admin/auto-code-web/target 找到jar包 执行 java -jar auto-code-web.jar<br />
+				7. 访问 http://localhost:8080<br />
+			</p>
+		</div>
+	</li>
+	<li class="layui-timeline-item">
+		<i class="layui-icon layui-timeline-axis"></i>
+		<div class="layui-timeline-content layui-text">
+			<h3 class="layui-timeline-title"><a name="2.1.1">auto-code-generator代码生成介绍</a></h3>
+			<p>
+				1.代码生成主要在 auto-code-generator 子模块中. 改模块基于 [auto-code](https://gitee.com/ztp/auto-code)
+				做的扩展.扩展了怎么生成 `单表` `一对一` `一对多` `多对多` 的页面展示关系.<br />
+
+				2.在 `application.properties` 文件中填写参数(不填也没事,可以到页面配置.不过建议填写.当项目重新页面参数会重置的)
+			<pre class="layui-code" lay-title="java" lay-skin="notepad">
+# 代码生成器
+#生成代码的项目根路径
+auto-code.parentPath=E:\\resource\\workspaceJDB\\auto-code-admin\\auto-code-web
+#生成代码的父包 如父包是com.zengtengpeng.test  controller将在com.zengtengpeng.test.controller下 bean 将在com.zengtengpeng.test.bean下 ,service,dao同理
+auto-code.parentPack=com.zengtengpeng.simple
+#添加权限到表的父id.如果为空则需要手动添加权限
+auto-code.authParentId=89
+		</pre>
+			3.这是代码生成的页面地址  http://localhost:8080/auto-code-ui/ui/index.html
+			</p>
+		</div>
+	</li>
+	<li class="layui-timeline-item">
+		<i class="layui-icon layui-timeline-axis"></i>
+		<div class="layui-timeline-content layui-text">
+			<h3 class="layui-timeline-title"><a name="2.1.2">单表生成</a></h3>
+			<p>
+			1.界面选择单表生成.选择对应的表,点击`生成预览`. 最后点击`确认生成`. 完毕.<br />
+				<img src="http://images.zengtengpeng.com/auto-code-ui/simple.png">
+			2.生成的文件如下:<br />
+			<img src="http://images.zengtengpeng.com/auto-code-web/simple.png">
+			</p>
+		</div>
+	</li>
+
+	<li class="layui-timeline-item">
+		<i class="layui-icon layui-timeline-axis"></i>
+		<div class="layui-timeline-content layui-text">
+			<h3 class="layui-timeline-title"><a name="2.1.3">一对一代码生成 对应 auto-code_one-to-one.yaml (代码采用追加的方式.无需担心代码被覆盖) </a></h3>
+			<p>
+				1. 打开界面.选择对应的表,一对一比单表多了一个外键id.
+				比如界面两张表的关系就是通过 user_id来关联的 如下:<br />
+				test_one_to_one_user.id=test_one_to_one_class.user_id
+				<img src="http://images.zengtengpeng.com/auto-code-ui/one-to-one1.png">
+				<img src="http://images.zengtengpeng.com/auto-code-ui/one-to-one2.png">
+				2.点击生成完毕.生成的文件和单表是一样的.里面会增加新的方法
+			</p>
+		</div>
+	</li>
+	<li class="layui-timeline-item">
+		<i class="layui-icon layui-timeline-axis"></i>
+		<div class="layui-timeline-content layui-text">
+			<h3 class="layui-timeline-title"><a name="2.1.4">一对多 代码生成 auto-code_one-to-many.yaml (代码采用追加的方式.无需担心代码被覆盖)</a></h3>
+			<p>
+				`一对多`与`一对一`一样不再描述
+			</p>
+		</div>
+	</li>
+	<li class="layui-timeline-item">
+		<i class="layui-icon layui-timeline-axis"></i>
+		<div class="layui-timeline-content layui-text">
+			<h3 class="layui-timeline-title"><a name="2.1.5">多对多 代码生成 auto-code_many-to-many.yaml (代码采用追加的方式.无需担心代码被覆盖)</a></h3>
+			<p>
+				1.打开界面.选择对应的表,`多对多`比`一对一`多了一个关系描述表
+				比如图片三张表的关系是通过 test_many_to_many_user_role来表述的.如下:<br />
+				test_many_to_many_user_role.user_id=test_many_to_many_user.id and test_many_to_many_user_role.role_id=test_many_to_many_role.id
+
+				<img src="http://images.zengtengpeng.com/auto-code-ui/many-to-many1.png">
+				<img src="http://images.zengtengpeng.com/auto-code-ui/many-to-many2.png">
+				<img src="http://images.zengtengpeng.com/auto-code-ui/many-to-many3.png">
+				2.点击生成完毕.生成的文件和单表是一样的.里面会增加新的方法
+			</p>
+		</div>
+	</li>
+
+	<li class="layui-timeline-item">
+		<i class="layui-icon layui-timeline-axis"></i>
+		<div class="layui-timeline-content layui-text">
+			<h3 class="layui-timeline-title"><a name="2.2">生成代码注意事项</a></h3>
+			<p>
+				1.多表支持无限级联生成. 比如 用户和收货地址对应,用户表和班级对应,等等..如上我为了程序的可读性故意将user建成3张表,其实只要一张表就够了<br />
+			2.创建表结构时如果写上表与字段的注释将大大增加程序的可读性.我会将注释写到bean上面.
+			以及页面上.没有写注释还需要页面修改对应的值.会加大工作量.举例:
+			<pre class="layui-code" lay-title="java" lay-skin="notepad">
+CREATE TABLE `test_code` (
+`id` int(11) NOT NULL AUTO_INCREMENT COMMENT '测试生成代码',
+`name` varchar(50) DEFAULT NULL COMMENT '名称',
+`age` int(3) DEFAULT NULL COMMENT '年龄',
+`status` int(2) DEFAULT NULL COMMENT '{"name":"状态","1":"启用","0":"禁用"}',
+`birthday` date DEFAULT NULL COMMENT '生日',
+`remarks` text COMMENT '备注',
+`create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='测试生成代码'
+			</pre>
+			3.如果注释为json键值对字符串我将会在实体类生成一个字典方法
+			如:  {"name":"状态","1":"启用","0":"禁用"} 将会在实体类里面生成如下,同时页面展示的名称将是 "状态"
+
+
+			<pre class="layui-code" lay-title="java" lay-skin="notepad">
+public String getStatus_(){
+	if(MyStringUtils.isEmpty(status)){
+		return "";
+	}else if(status.equals("1")){
+		return "启用";
+	}else if(status.equals("0")){
+		return "禁用";
+	}
+	return "";
+}
+			</pre>
+			页面展示如下
+			<img src="http://images.zengtengpeng.com/auto-code-web/select.png">
+			</p>
+
+		</div>
+	</li>
+	<li class="layui-timeline-item">
+		<i class="layui-icon layui-timeline-axis"></i>
+		<div class="layui-timeline-content layui-text">
+			<h3 class="layui-timeline-title"><a name="3.1">如何进行项目集群</a></h3>
+			<p>
+				集群非常简单只需要简单的3部就能完成<br />
+				1.安装redis 下载地址 redis官方是不支持windows的不过有社区版 下载地址<br />
+				2.使用spring-session将session放入redis中,修改 auto-code-admin/pom.xml<br />
+			<pre class="layui-code" lay-title="java" lay-skin="notepad">
+&lt;dependency&gt;
+	&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+	&lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+	&lt;groupId&gt;org.springframework.session&lt;/groupId&gt;
+	&lt;artifactId&gt;spring-session-data-redis&lt;/artifactId&gt;
+&lt;/dependency&gt;
+		</pre>
+				3.修改 auto-code-web/application-dev.properties 配置文件 增加redis配置<br />
+			<pre class="layui-code" lay-title="java" lay-skin="notepad">
+#redis
+spring.redis.host=127.0.0.1
+spring.redis.port=6379
+			</pre>
+				4.到此为止,集群成功
+			</p>
+		</div>
+	</li>
+	<li class="layui-timeline-item">
+		<i class="layui-icon layui-timeline-axis"></i>
+		<div class="layui-timeline-content layui-text">
+			<h3 class="layui-timeline-title"><a name="3.2">权限机制的实现</a></h3>
+			<p>
+				1.本项目采用拦截器管理权限 具体实现 com.zengtengpeng.interceptor.UserInterceptor<br />
+				2.具体怎么实现?  权限默认采用@RequestMapping映射值作为权限校验.<br />
+				3.如果两个url想采用一个权限怎么办? 使用 com.zengtengpeng.common.annotation.Auth 注解,
+				值为 另外一个权限url.这样他们就共享同一个授权了,如果不写值默认只要登录就有该权限.<br />
+				4.如果该方法不需要登录就能访问怎么办? com.zengtengpeng.common.annotation.Pass
+				注解标注在方法上.该方法就不需要授权<br />
+			</p>
+		</div>
+	</li>
+</ul>
+</body>
+<script>
+    layui.use(['table','form'], function(){
+        var table = layui.table;
+        var form = layui.form;
+        form.render();
+//转换静态表格
+        table.init('parse-table-demo', {
+        });
+    });
+</script>
+</html>

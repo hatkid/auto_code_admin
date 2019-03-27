@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"  style="height: 100%">
+<head>
+	<div th:replace="~{common/common-head.html::common-head}"></div>
+	<script type="text/javascript" th:src="@{/static/lib/echarts.min.js}"></script>
+	<script type="text/javascript" th:inline="javascript">
+		$(function () {
+            var dom = document.getElementById("container");
+            var myChart = echarts.init(dom);
+            var app = {};
+            option = null;
+            option = {
+                color: ['#222222'],
+                xAxis: {
+                    type: 'category',
+                    data:[[${x}]]
+                },
+                yAxis: {
+                    type: 'value'
+                },
+                series: [{
+                    data: [[${y}]],
+                    type: 'line'
+                }]
+            };
+            if (option && typeof option === "object") {
+                myChart.setOption(option, true);
+            }
+        })
+
+	</script>
+</head>
+
+<body style="height: 100%">
+<div  id="container"   style="height: 100%">
+</div>
+</body>
+</html>
